@@ -826,27 +826,51 @@ btnExportCSV.addEventListener('click', () => {
     document.addEventListener('DOMContentLoaded', init);
   }
 
-  // Remove loading screen after page load
-  window.addEventListener('load', () => {
+  // Remove loading screen after page load with smooth transition
+  function hideLoadingScreen() {
     const loadingScreen = document.getElementById('loadingScreen');
+    const appContainer = document.querySelector('.app-container');
+    
     if (loadingScreen) {
       loadingScreen.classList.add('hide');
+      if (appContainer) {
+        appContainer.classList.add('fade-in-page');
+      }
       setTimeout(() => {
         loadingScreen.style.display = 'none';
       }, 600);
     }
-  });
+  }
+
+  window.addEventListener('load', hideLoadingScreen);
 
   // Fallback: remove loading screen after 3 seconds
   setTimeout(() => {
     const loadingScreen = document.getElementById('loadingScreen');
     if (loadingScreen && loadingScreen.style.display !== 'none') {
-      loadingScreen.classList.add('hide');
-      setTimeout(() => {
-        loadingScreen.style.display = 'none';
-      }, 600);
+      hideLoadingScreen();
     }
-  }, 3000)
+  }, 3000);
+
+  // Intersection Observer para animar elementos ao scrollar
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observar todos os elementos com classe scroll-spy
+  document.querySelectorAll('.scroll-spy, .animate-up, .category-card, .product-card, .blog-card').forEach(el => {
+    observer.observe(el);
+  })
 
 })();
 
@@ -913,3 +937,27 @@ if (generalContactForm) {
   });
 }
 
+
+/* ==========================================================================
+   BACK TO TOP BUTTON LOGIC
+   ========================================================================== */
+const backToTopBtn = document.getElementById('backToTop');
+
+if (backToTopBtn) {
+  // Show/hide button based on scroll position
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+
+  // Scroll to top when button is clicked
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}

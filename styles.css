@@ -2590,6 +2590,152 @@ img {
 }
 
 /* ==========================================================================
+   PAGE TRANSITION ANIMATIONS
+   ========================================================================== */
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-page {
+  animation: fadeInPage 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* Scroll Reveal Animations */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes revealRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.scroll-spy {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.scroll-spy.revealed {
+  animation: revealUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.product-card {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.product-card.revealed {
+  animation: revealUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.blog-card {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.blog-card.revealed {
+  animation: revealUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.category-card {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.category-card.revealed {
+  animation: revealUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* Staggered animations for multiple elements */
+.product-card:nth-child(1).revealed {
+  animation-delay: 0s;
+}
+
+.product-card:nth-child(2).revealed {
+  animation-delay: 0.1s;
+}
+
+.product-card:nth-child(3).revealed {
+  animation-delay: 0.2s;
+}
+
+.product-card:nth-child(4).revealed {
+  animation-delay: 0.3s;
+}
+
+.product-card:nth-child(n+5).revealed {
+  animation-delay: 0.4s;
+}
+
+/* ==========================================================================
+   BACK TO TOP BUTTON
+   ========================================================================== */
+.back-to-top {
+  position: fixed;
+  bottom: -60px;
+  right: 24px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #233816 0%, #56681d 100%);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(35, 56, 22, 0.3);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 1000;
+}
+
+.back-to-top.show {
+  bottom: 24px;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(35, 56, 22, 0.4);
+  background: linear-gradient(135deg, #56681d 0%, #233816 100%);
+}
+
+.back-to-top:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
    MEDIA QUERIES (RESPONSIVENESS)
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -2908,3 +3054,114 @@ img {
     padding: var(--spacing-md);
   }
 }
+
+/* ==========================================================================
+   ADDITIONAL UI/UX REFINEMENTS
+   ========================================================================== */
+
+/* Enhanced Header Transitions */
+.main-header {
+  backdrop-filter: blur(10px);
+}
+
+/* Smooth transitions for navigation links */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Enhanced section transitions */
+section {
+  transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Smooth image loading */
+img {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Enhanced form inputs */
+input, textarea, select {
+  transition: all 0.3s ease;
+  border-color: var(--text-muted);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(86, 104, 29, 0.1);
+}
+
+/* Smooth modal transitions */
+.modal-overlay {
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  backdrop-filter: blur(8px);
+}
+
+/* Enhanced card shadows on scroll */
+.product-card, .blog-card, .category-card {
+  box-shadow: 0 4px 12px rgba(35, 56, 22, 0.08);
+}
+
+.product-card:hover, .blog-card:hover, .category-card:hover {
+  box-shadow: 0 20px 40px rgba(35, 56, 22, 0.15);
+}
+
+/* Smooth divider animations */
+.page-divider-img {
+  transition: transform 0.6s ease;
+}
+
+/* Smooth text selections */
+::selection {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Improved button focus states */
+button:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Smooth scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
