@@ -240,15 +240,18 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10000;
+  z-index: 99999 !important; /* Sempre no topo de qualquer seção */
   background-color: var(--glass-bg);
   border-bottom: 1px solid var(--glass-border);
-  transition: padding 0.4s ease, box-shadow 0.4s ease;
+  transition: padding 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  transform: translate3d(0, 0, 0); /* Evita bug de renderização/compositing em navegadores WebKit/Safari no macOS */
+  will-change: transform, padding, box-shadow;
 }
 
-/* Compact when scrolled — header grows back to full size */
+/* Compacto e com sombra ao rolar a página */
 .main-header.scrolled {
   box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+  background-color: rgba(35, 56, 22, 0.99) !important;
 }
 
 .header-container {
@@ -257,14 +260,14 @@ img {
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  /* Compact at top: small padding */
-  padding: 6px 24px;
+  /* Expandido no topo (não rolado) */
+  padding: 18px 24px;
   transition: padding 0.4s ease;
 }
 
-/* When scrolled, header-container expands */
+/* Compacto quando a página é rolada para baixo */
 .main-header.scrolled .header-container {
-  padding: 14px 24px;
+  padding: 8px 24px;
 }
 
 .logo-area {
@@ -273,16 +276,16 @@ img {
   gap: 12px;
 }
 
-/* Logo: small at top, larger when scrolled */
+/* Logo grande no topo, compacta ao rolar */
 .brand-logo {
-  max-height: 42px;
+  max-height: 68px;
   width: auto;
   display: block;
   transition: max-height 0.4s ease, transform 0.3s ease;
 }
 
 .main-header.scrolled .brand-logo {
-  max-height: 68px;
+  max-height: 44px;
 }
 
 .brand-logo:hover {

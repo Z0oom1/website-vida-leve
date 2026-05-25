@@ -2,45 +2,41 @@
    APP DATA SOURCE (PRODUCTS, UNITS, BLOGS)
    ========================================================================== */
 
-const GRANEIS_IMG = 'assets/graneis.jpg';
-const ENCAPSULADOS_IMG = 'assets/encapsulados.jpg';
-const SUPLEMENTOS_IMG = 'assets/suplementos.jpg';
-const MARMITAS_IMG = 'assets/marmitas.jpg';
-const SAUDAVEIS_IMG = 'assets/saudaveis.jpg';
-const WHEY_IMG = 'assets/whey.jpg';
+const PROVISORIA_IMG  = 'assets/provisoria.png';
+const PROVISORIA2_IMG = 'assets/provisoria2.png';
 
 const PRODUCTS_DATA = [
   // Granéis
-  { id: 1,  category: 'graneis',      name: 'Castanha do Pará Inteira',         desc: 'Castanhas selecionadas, ricas em selênio, fibras e gorduras boas para o coração.',                                                          price: 'R$ 89,90/kg', image: GRANEIS_IMG  },
-  { id: 2,  category: 'graneis',      name: 'Mix de Frutas Secas',              desc: 'Combinação perfeita de damasco, uva passa, tâmara e figo seco sem adição de açúcar.',                                                         price: 'R$ 45,00/kg', image: GRANEIS_IMG },
-  { id: 3,  category: 'graneis',      name: 'Quinoa em Grãos Orgânica',         desc: 'Superalimento completo rico em proteínas, aminoácidos essenciais e de baixo índice glicêmico.',                                              price: 'R$ 28,00/kg', image: GRANEIS_IMG  },
+  { id: 1,  category: 'graneis',      name: 'Castanha do Pará Inteira',         desc: 'Castanhas selecionadas, ricas em selênio, fibras e gorduras boas para o coração.',                                                          price: 'R$ 89,90/kg', image: PROVISORIA_IMG  },
+  { id: 2,  category: 'graneis',      name: 'Mix de Frutas Secas',              desc: 'Combinação perfeita de damasco, uva passa, tâmara e figo seco sem adição de açúcar.',                                                         price: 'R$ 45,00/kg', image: PROVISORIA2_IMG },
+  { id: 3,  category: 'graneis',      name: 'Quinoa em Grãos Orgânica',         desc: 'Superalimento completo rico em proteínas, aminoácidos essenciais e de baixo índice glicêmico.',                                              price: 'R$ 28,00/kg', image: PROVISORIA_IMG  },
 
   // Encapsulados
-  { id: 4,  category: 'encapsulados', name: 'Picolinato de Cromo (120 caps)',   desc: 'Suplemento mineral excelente para auxiliar no controle da insulina e redução do desejo por doces.',                                          price: 'R$ 54,90',    image: ENCAPSULADOS_IMG },
-  { id: 5,  category: 'encapsulados', name: 'Colágeno Hidrolisado Verisol',     desc: 'Promove a elasticidade da pele, fortalecimento de unhas, cabelos e saúde das articulações.',                                                  price: 'R$ 89,00',    image: ENCAPSULADOS_IMG  },
-  { id: 6,  category: 'encapsulados', name: 'Ômega 3 Ultra Puro (90 caps)',     desc: 'Alta concentração de EPA/DHA livre de metais pesados, excelente para a saúde cerebral e cardiovascular.',                                    price: 'R$ 79,90',    image: ENCAPSULADOS_IMG },
+  { id: 4,  category: 'encapsulados', name: 'Picolinato de Cromo (120 caps)',   desc: 'Suplemento mineral excelente para auxiliar no controle da insulina e redução do desejo por doces.',                                          price: 'R$ 54,90',    image: PROVISORIA2_IMG },
+  { id: 5,  category: 'encapsulados', name: 'Colágeno Hidrolisado Verisol',     desc: 'Promove a elasticidade da pele, fortalecimento de unhas, cabelos e saúde das articulações.',                                                  price: 'R$ 89,00',    image: PROVISORIA_IMG  },
+  { id: 6,  category: 'encapsulados', name: 'Ômega 3 Ultra Puro (90 caps)',     desc: 'Alta concentração de EPA/DHA livre de metais pesados, excelente para a saúde cerebral e cardiovascular.',                                    price: 'R$ 79,90',    image: PROVISORIA2_IMG },
 
   // Suplementos
-  { id: 7,  category: 'suplementos',  name: 'Whey Protein Isolado 100%',        desc: 'Alta absorção proteica para ganho de massa muscular magra, sem adição de glúten ou açúcares.',                                              price: 'R$ 189,00',   image: SUPLEMENTOS_IMG  },
-  { id: 8,  category: 'suplementos',  name: 'Creatina Monohidratada 100% Pura', desc: 'Aumenta o desempenho físico, força e explosão durante treinos intensificados.',                                                             price: 'R$ 95,00',    image: SUPLEMENTOS_IMG },
-  { id: 9,  category: 'suplementos',  name: 'Termogênico Natural Extreme',      desc: 'À base de cafeína anidra, chá verde e gengibre para acelerar a queima de gorduras.',                                                         price: 'R$ 110,00',   image: WHEY_IMG  },
+  { id: 7,  category: 'suplementos',  name: 'Whey Protein Isolado 100%',        desc: 'Alta absorção proteica para ganho de massa muscular magra, sem adição de glúten ou açúcares.',                                              price: 'R$ 189,00',   image: PROVISORIA_IMG  },
+  { id: 8,  category: 'suplementos',  name: 'Creatina Monohidratada 100% Pura', desc: 'Aumenta o desempenho físico, força e explosão durante treinos intensificados.',                                                             price: 'R$ 95,00',    image: PROVISORIA2_IMG },
+  { id: 9,  category: 'suplementos',  name: 'Termogênico Natural Extreme',      desc: 'À base de cafeína anidra, chá verde e gengibre para acelerar a queima de gorduras.',                                                         price: 'R$ 110,00',   image: PROVISORIA_IMG  },
 
   // Marmitas Fit
-  { id: 10, category: 'marmitas',     name: 'Frango Grelhado e Batata Doce',    desc: 'Delicioso peito de frango temperado com ervas finas acompanhado de purê rústico de batata doce.',                                           price: 'R$ 22,90',    image: MARMITAS_IMG },
-  { id: 11, category: 'marmitas',     name: 'Escondidinho de Patinho',           desc: 'Carne moída premium de patinho sob uma camada cremosa de mandioca gratinada fit.',                                                           price: 'R$ 24,90',    image: MARMITAS_IMG  },
-  { id: 12, category: 'marmitas',     name: 'Risoto de Cogumelos Fit',           desc: 'Arroz integral cremoso cozido com mix de cogumelos frescos shimeji e paris ao toque de amêndoas.',                                           price: 'R$ 26,90',    image: MARMITAS_IMG },
+  { id: 10, category: 'marmitas',     name: 'Frango Grelhado e Batata Doce',    desc: 'Delicioso peito de frango temperado com ervas finas acompanhado de purê rústico de batata doce.',                                           price: 'R$ 22,90',    image: PROVISORIA2_IMG },
+  { id: 11, category: 'marmitas',     name: 'Escondidinho de Patinho',           desc: 'Carne moída premium de patinho sob uma camada cremosa de mandioca gratinada fit.',                                                           price: 'R$ 24,90',    image: PROVISORIA_IMG  },
+  { id: 12, category: 'marmitas',     name: 'Risoto de Cogumelos Fit',           desc: 'Arroz integral cremoso cozido com mix de cogumelos frescos shimeji e paris ao toque de amêndoas.',                                           price: 'R$ 26,90',    image: PROVISORIA2_IMG },
 
   // Sem Glúten
-  { id: 13, category: 'sem-gluten',   name: 'Pão Artesanal Multigrãos',         desc: 'Pão fofinho feito com farinha de amêndoas, linhaça e sementes de girassol, sem glúten.',                                                    price: 'R$ 18,90',    image: SAUDAVEIS_IMG  },
-  { id: 14, category: 'sem-gluten',   name: 'Cookies de Cacau com Aveia',       desc: 'Biscoitos crocantes adoçados com xilitol, lotados de gotas de chocolate 70% sem glúten.',                                                   price: 'R$ 12,50',    image: SAUDAVEIS_IMG },
+  { id: 13, category: 'sem-gluten',   name: 'Pão Artesanal Multigrãos',         desc: 'Pão fofinho feito com farinha de amêndoas, linhaça e sementes de girassol, sem glúten.',                                                    price: 'R$ 18,90',    image: PROVISORIA_IMG  },
+  { id: 14, category: 'sem-gluten',   name: 'Cookies de Cacau com Aveia',       desc: 'Biscoitos crocantes adoçados com xilitol, lotados de gotas de chocolate 70% sem glúten.',                                                   price: 'R$ 12,50',    image: PROVISORIA2_IMG },
 
   // Bebidas
-  { id: 15, category: 'bebidas',      name: 'Kombucha de Hibisco e Gengibre',   desc: 'Bebida probiótica fermentada naturalmente, refrescante e excelente para a flora intestinal.',                                               price: 'R$ 11,90',    image: SAUDAVEIS_IMG  },
-  { id: 16, category: 'bebidas',      name: 'Suco Verde Detox Cold Pressed',    desc: 'Suco prensado a frio com couve, abacaxi, hortelã, gengibre e maçã sem água ou conservantes.',                                              price: 'R$ 9,90',     image: SAUDAVEIS_IMG },
+  { id: 15, category: 'bebidas',      name: 'Kombucha de Hibisco e Gengibre',   desc: 'Bebida probiótica fermentada naturalmente, refrescante e excelente para a flora intestinal.',                                               price: 'R$ 11,90',    image: PROVISORIA_IMG  },
+  { id: 16, category: 'bebidas',      name: 'Suco Verde Detox Cold Pressed',    desc: 'Suco prensado a frio com couve, abacaxi, hortelã, gengibre e maçã sem água ou conservantes.',                                              price: 'R$ 9,90',     image: PROVISORIA2_IMG },
 
   // Sem Lactose
-  { id: 17, category: 'sem-lactose',  name: 'Iogurte de Coco Natural Vegano',   desc: 'Iogurte cremoso fermentado à base de leite de coco puro, rico em gorduras saudáveis e probióticos.',                                       price: 'R$ 15,90',    image: SAUDAVEIS_IMG  },
-  { id: 18, category: 'sem-lactose',  name: 'Creme de Leite de Aveia Gourmet',  desc: 'Alternativa culinária cremosa e leve para substituir o creme de leite tradicional nas suas receitas.',                                     price: 'R$ 7,50',     image: SAUDAVEIS_IMG }
+  { id: 17, category: 'sem-lactose',  name: 'Iogurte de Coco Natural Vegano',   desc: 'Iogurte cremoso fermentado à base de leite de coco puro, rico em gorduras saudáveis e probióticos.',                                       price: 'R$ 15,90',    image: PROVISORIA_IMG  },
+  { id: 18, category: 'sem-lactose',  name: 'Creme de Leite de Aveia Gourmet',  desc: 'Alternativa culinária cremosa e leve para substituir o creme de leite tradicional nas suas receitas.',                                     price: 'R$ 7,50',     image: PROVISORIA2_IMG }
 ];
 
 
@@ -899,10 +895,8 @@ window.openProductDetailModal = function(productId) {
   detailProductDesc.innerText = product.desc;
   detailProductPrice.innerText = product.price;
   
-  // Custom image logic based on category
-  if (product.category === 'marmitas') detailProductImg.src = 'assets/nutritional_consulting.png';
-  else if (product.category === 'suplementos' || product.category === 'encapsulados') detailProductImg.src = 'assets/hero_background.png';
-  else detailProductImg.src = 'assets/background.png';
+  // Usa a própria imagem do produto (provisoria/provisoria2) definida no PRODUCTS_DATA
+  detailProductImg.src = product.image || PROVISORIA_IMG;
 
   btnBuyWhatsapp.onclick = () => {
     productDetailModal.classList.remove('active');
