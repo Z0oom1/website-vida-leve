@@ -862,15 +862,8 @@ if (btnExportCSV) {
     }
   }
 
-  window.addEventListener('load', hideLoadingScreen);
-
-  // Fallback: remove loading screen after 3 seconds
-  setTimeout(() => {
-    const loadingScreen = document.getElementById('loadingScreen');
-    if (loadingScreen && loadingScreen.style.display !== 'none') {
-      hideLoadingScreen();
-    }
-  }, 3000);
+  // Força a tela de loading a durar exatamente 2 segundos para uma transição suave e memorável da marca
+  setTimeout(hideLoadingScreen, 2000);
 
   // Intersection Observer para animar elementos ao scrollar
   const observerOptions = {
