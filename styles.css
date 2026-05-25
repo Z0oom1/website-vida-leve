@@ -2976,53 +2976,54 @@ img {
    PRODUCT DETAIL MODAL (REDESIGNED & PREMIUM)
    ========================================================================== */
 .product-detail-card {
-  max-width: 900px !important;
+  max-width: 920px !important;
   width: 90%;
   padding: 0;
   overflow: hidden;
   border-radius: var(--border-radius-lg);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 35px 80px rgba(16, 26, 12, 0.3);
   background-color: var(--white);
 }
 
 .product-detail-content {
   display: grid;
-  grid-template-columns: 1.1fr 1.3fr;
-  min-height: 520px;
+  grid-template-columns: 1.15fr 1.25fr;
+  min-height: 540px;
 }
 
 .product-detail-img-container {
   position: relative;
-  background: linear-gradient(135deg, var(--background-sand) 0%, #ecdcc9 100%);
+  background: radial-gradient(circle at center, #faf6f0 0%, var(--background-sand) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
-  border-right: 1px solid rgba(35, 56, 22, 0.08);
+  padding: 48px;
+  border-right: 1px solid rgba(35, 56, 22, 0.06);
 }
 
 .product-detail-img-frame {
   background: var(--white);
-  padding: 24px;
+  padding: 28px;
   border-radius: var(--border-radius-md);
-  box-shadow: 0 15px 35px rgba(35, 56, 22, 0.1);
+  box-shadow: 0 20px 45px rgba(35, 56, 22, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 320px;
+  max-width: 330px;
+  border: 1px solid rgba(212, 175, 55, 0.12);
   transition: var(--transition-smooth);
 }
 
 .product-detail-img-frame:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 20px 45px rgba(35, 56, 22, 0.18);
+  transform: translateY(-6px) scale(1.025);
+  box-shadow: 0 25px 55px rgba(35, 56, 22, 0.14);
 }
 
 .product-detail-img {
   width: 100%;
-  height: 240px;
+  height: 250px;
   object-fit: contain;
   border-radius: var(--border-radius-sm);
   display: block;
@@ -3033,20 +3034,21 @@ img {
   top: 24px;
   left: 24px;
   font-family: var(--font-headings);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--primary-color);
-  background: rgba(179, 194, 157, 0.35);
-  border: 1px solid rgba(35, 56, 22, 0.2);
+  letter-spacing: 2.5px;
+  color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(86, 104, 29, 0.2);
   border-radius: 99px;
-  padding: 6px 16px;
+  padding: 6px 18px;
   pointer-events: none;
+  box-shadow: var(--shadow-sm);
 }
 
 .product-detail-info {
-  padding: 48px;
+  padding: 56px 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -3055,49 +3057,50 @@ img {
 
 .product-detail-kicker {
   display: block;
-  font-family: var(--font-headings);
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--secondary-color);
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom: 8px;
+  font-family: var(--font-cursive);
+  font-size: 2.6rem;
+  color: var(--accent-color);
+  margin-bottom: 2px;
+  line-height: 1;
 }
 
 .product-detail-info h2 {
-  font-family: var(--font-headings);
+  font-family: var(--font-serif);
   color: var(--primary-color);
-  font-size: 2.2rem;
-  font-weight: 800;
-  line-height: 1.15;
+  font-size: 2.4rem;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.2;
   margin-bottom: 12px;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
 }
 
 .product-detail-price-row {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
-  margin-bottom: 18px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .product-detail-price-row .price-label {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-muted);
-  font-weight: 500;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .product-price-large {
-  font-size: 2rem;
+  font-size: 2.1rem;
   font-weight: 800;
   color: var(--secondary-color);
   font-family: var(--font-headings);
 }
 
 .product-detail-desc {
-  font-size: 15px;
+  font-size: 14.5px;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.65;
   margin-bottom: 24px;
 }
 
@@ -3106,8 +3109,8 @@ img {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  margin-bottom: 28px;
-  padding: 16px 0;
+  margin-bottom: 24px;
+  padding: 18px 0;
   border-top: 1px dashed rgba(35, 56, 22, 0.12);
   border-bottom: 1px dashed rgba(35, 56, 22, 0.12);
 }
@@ -3115,26 +3118,37 @@ img {
 .benefit-tag {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-size: 13px;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--primary-color);
+  background: rgba(86, 104, 29, 0.05);
+  border: 1px solid rgba(86, 104, 29, 0.1);
+  padding: 8px 14px;
+  border-radius: 99px;
 }
 
 .benefit-tag .benefit-icon {
-  font-size: 16px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.benefit-tag .benefit-text {
+  font-family: var(--font-headings);
 }
 
 /* Interactivity layout */
 .product-order-options {
-  background: var(--background-sand);
-  padding: 20px;
+  background: #fdfcf9;
+  padding: 22px;
   border-radius: var(--border-radius-md);
-  margin-bottom: 28px;
+  margin-bottom: 26px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  gap: 18px;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  box-shadow: inset 0 2px 4px rgba(35, 56, 22, 0.02);
 }
 
 .option-row {
@@ -3152,7 +3166,7 @@ img {
 
 .option-label {
   font-family: var(--font-headings);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -3165,16 +3179,17 @@ img {
   align-items: center;
   background: var(--white);
   border-radius: 99px;
-  border: 1.5px solid rgba(35, 56, 22, 0.15);
+  border: 1.5px solid rgba(86, 104, 29, 0.18);
   overflow: hidden;
   padding: 3px;
+  box-shadow: var(--shadow-sm);
 }
 
 .qty-btn {
   border: none;
   background: transparent;
-  color: var(--primary-color);
-  font-size: 16px;
+  color: var(--secondary-color);
+  font-size: 15px;
   font-weight: 700;
   width: 32px;
   height: 32px;
@@ -3194,10 +3209,10 @@ img {
 .quantity-selector input {
   border: none;
   background: transparent;
-  width: 44px;
+  width: 40px;
   text-align: center;
   font-family: var(--font-headings);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--primary-color);
   outline: none;
@@ -3205,46 +3220,55 @@ img {
 
 .product-order-options input[type="text"] {
   width: 100%;
-  padding: 12px 18px;
+  padding: 12px 20px;
   border-radius: 99px;
-  border: 1.5px solid rgba(35, 56, 22, 0.12);
+  border: 1.5px solid rgba(86, 104, 29, 0.15);
   background: var(--white);
   font-size: 14px;
   color: var(--text-dark);
+  transition: var(--transition-smooth);
 }
 
 .product-order-options input[type="text"]:focus {
   border-color: var(--secondary-color);
-  box-shadow: 0 0 0 3px rgba(86, 104, 29, 0.1);
+  box-shadow: 0 0 0 3px rgba(86, 104, 29, 0.12);
+  outline: none;
 }
 
-/* CTA Order Button */
+/* CTA Order Button with Premium WhatsApp SVG styling */
 .btn-product-order-whatsapp {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
   color: var(--white);
   padding: 16px 36px;
   border-radius: 99px;
   font-weight: 700;
   font-family: var(--font-headings);
-  border: none;
-  box-shadow: 0 8px 24px rgba(35, 56, 22, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 10px 25px rgba(35, 56, 22, 0.25);
   cursor: pointer;
   transition: var(--transition-smooth);
-  font-size: 15px;
+  font-size: 14.5px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 .btn-product-order-whatsapp:hover {
-  background-color: var(--secondary-color);
+  background: linear-gradient(135deg, #6c802b 0%, var(--secondary-color) 100%);
   transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(86, 104, 29, 0.35);
+  box-shadow: 0 15px 35px rgba(86, 104, 29, 0.4);
 }
 
-.btn-product-order-whatsapp .btn-icon {
-  font-size: 18px;
+.btn-whatsapp-icon {
+  fill: currentColor;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-product-order-whatsapp:hover .btn-whatsapp-icon {
+  transform: scale(1.15) rotate(-8deg);
 }
 
 @media (max-width: 768px) {
