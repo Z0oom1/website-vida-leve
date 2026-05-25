@@ -2128,7 +2128,9 @@ img {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(16, 26, 12, 0.85); /* Premium dark forest green backdrop overlay */
+  background-color: rgba(16, 26, 12, 0.7); /* Premium dark forest green backdrop overlay slightly more transparent */
+  backdrop-filter: blur(8px); /* Static acrylic blur background for beautiful modern design */
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2136,7 +2138,7 @@ img {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.2s ease-out, visibility 0.2s ease-out; /* Super snappy instant transition */
+  transition: opacity 0.25s ease-out, visibility 0.25s ease-out; /* Super snappy instant transition */
   will-change: opacity, visibility;
 }
 
@@ -2976,54 +2978,58 @@ img {
    PRODUCT DETAIL MODAL (REDESIGNED & PREMIUM)
    ========================================================================== */
 .product-detail-card {
-  max-width: 920px !important;
+  max-width: 800px !important; /* Compacto, elegante e luxuoso */
   width: 90%;
   padding: 0;
   overflow: hidden;
   border-radius: var(--border-radius-lg);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  box-shadow: 0 35px 80px rgba(16, 26, 12, 0.3);
-  background-color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.45); /* Borda brilhante estilo vidro */
+  box-shadow: 0 30px 70px rgba(16, 26, 12, 0.25);
+  background: rgba(255, 255, 255, 0.72); /* Acrílico Translúcido */
+  backdrop-filter: blur(25px); /* Desfoque de Acrílico de alta definição */
+  -webkit-backdrop-filter: blur(25px);
 }
 
 .product-detail-content {
   display: grid;
-  grid-template-columns: 1.15fr 1.25fr;
-  min-height: 540px;
+  grid-template-columns: 1fr 1.15fr; /* Proporções mais esbeltas e compactas */
+  min-height: 480px; /* Reduzido de 540px */
 }
 
 .product-detail-img-container {
   position: relative;
-  background: radial-gradient(circle at center, #faf6f0 0%, var(--background-sand) 100%);
+  background: radial-gradient(circle at center, rgba(250, 246, 240, 0.45) 0%, rgba(245, 235, 225, 0.55) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 48px;
-  border-right: 1px solid rgba(35, 56, 22, 0.06);
+  padding: 36px;
+  border-right: 1px solid rgba(35, 56, 22, 0.04);
 }
 
 .product-detail-img-frame {
-  background: var(--white);
-  padding: 28px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 20px;
   border-radius: var(--border-radius-md);
-  box-shadow: 0 20px 45px rgba(35, 56, 22, 0.08);
+  box-shadow: 0 15px 35px rgba(35, 56, 22, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 330px;
-  border: 1px solid rgba(212, 175, 55, 0.12);
+  max-width: 270px; /* Reduzido de 330px para compacidade */
+  border: 1px solid rgba(255, 255, 255, 0.6);
   transition: var(--transition-smooth);
 }
 
 .product-detail-img-frame:hover {
-  transform: translateY(-6px) scale(1.025);
-  box-shadow: 0 25px 55px rgba(35, 56, 22, 0.14);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(35, 56, 22, 0.1);
 }
 
 .product-detail-img {
   width: 100%;
-  height: 250px;
+  height: 200px; /* Reduzido de 250px para compacidade visual */
   object-fit: contain;
   border-radius: var(--border-radius-sm);
   display: block;
@@ -3031,28 +3037,28 @@ img {
 
 .product-detail-badge {
   position: absolute;
-  top: 24px;
-  left: 24px;
+  top: 20px;
+  left: 20px;
   font-family: var(--font-headings);
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
   color: var(--secondary-color);
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(86, 104, 29, 0.2);
   border-radius: 99px;
-  padding: 6px 18px;
+  padding: 5px 15px;
   pointer-events: none;
   box-shadow: var(--shadow-sm);
 }
 
 .product-detail-info {
-  padding: 56px 48px;
+  padding: 40px 36px; /* Reduzido de 56px 48px para compacidade */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: var(--white);
+  background-color: rgba(255, 255, 255, 0.25); /* Fundo sutil para permitir ver o blur do card principal */
 }
 
 .product-detail-kicker {
