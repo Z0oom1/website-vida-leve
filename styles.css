@@ -270,6 +270,7 @@ img {
 .logo-area {
   display: flex;
   align-items: center;
+  gap: 12px;
 }
 
 /* Logo: small at top, larger when scrolled */
@@ -286,6 +287,25 @@ img {
 
 .brand-logo:hover {
   transform: scale(1.05);
+}
+
+.navbar-branch-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-headings);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-color);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 999px;
+  padding: 5px 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: var(--transition-smooth);
 }
 
 /* Desktop Nav Links (White text as requested) */
