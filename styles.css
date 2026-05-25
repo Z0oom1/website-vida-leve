@@ -1458,16 +1458,7 @@ img {
   overflow: hidden;
 }
 
-.plant-silhouette-overlay {
-  position: absolute;
-  inset: 0;
-  opacity: 0.05;
-  background-image: url('assets/hero_background.png');
-  background-size: cover;
-  background-position: center;
-  filter: grayscale(1);
-  pointer-events: none;
-}
+
 
 .testimonials-header-new {
   margin-bottom: 48px;
