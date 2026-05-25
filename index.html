@@ -651,30 +651,70 @@
 
     </main>
 
-    <!-- MODAL: PRODUCT DETAIL -->
+    <!-- MODAL: PRODUCT DETAIL (REDESIGNED & PREMIUM) -->
     <div class="modal-overlay" id="productDetailModal">
       <div class="modal-card product-detail-card">
-        <button class="modal-close" id="btnProductDetailClose">&times;</button>
+        <button class="modal-close" id="btnProductDetailClose" aria-label="Fechar">&times;</button>
         <div class="product-detail-content">
+          <!-- Left side: Immersive Product Image Frame -->
           <div class="product-detail-img-container">
-            <img src="assets/hero_background.png" alt="Produto" id="detailProductImg" class="product-detail-img">
-            <span class="product-badge" id="detailProductCategory">Categoria</span>
+            <div class="product-detail-img-frame">
+              <img src="assets/provisoria.png" alt="Produto" id="detailProductImg" class="product-detail-img">
+            </div>
+            <span class="product-detail-badge" id="detailProductCategory">Categoria</span>
           </div>
+          
+          <!-- Right side: Rich Product Info & Custom Order Features -->
           <div class="product-detail-info">
+            <span class="product-detail-kicker">Catálogo Oficial</span>
             <h2 id="detailProductName">Nome do Produto</h2>
-            <p id="detailProductDesc" class="lead-text">Descrição detalhada do produto.</p>
-            <h3 id="detailProductPrice" class="product-price-large">R$ 0,00</h3>
+            <div class="product-detail-price-row">
+              <span class="price-label">Preço sugerido:</span>
+              <h3 id="detailProductPrice" class="product-price-large">R$ 0,00</h3>
+            </div>
+            <p id="detailProductDesc" class="product-detail-desc">Descrição detalhada do produto.</p>
 
-            <div class="product-benefits">
-              <div class="benefit-item">
-                <span class="icon">🌿</span> <span>100% Natural</span>
+            <!-- Premium Product Features/Benefits -->
+            <div class="product-benefits-grid">
+              <div class="benefit-tag">
+                <span class="benefit-icon">🌿</span>
+                <span class="benefit-text">100% Natural</span>
               </div>
-              <div class="benefit-item">
-                <span class="icon">⭐</span> <span>Qualidade Premium</span>
+              <div class="benefit-tag">
+                <span class="benefit-icon">🛡️</span>
+                <span class="benefit-text">Sem Conservantes</span>
+              </div>
+              <div class="benefit-tag">
+                <span class="benefit-icon">💎</span>
+                <span class="benefit-text">Padrão Ouro</span>
+              </div>
+              <div class="benefit-tag">
+                <span class="benefit-icon">🩺</span>
+                <span class="benefit-text">Foco Saúde</span>
               </div>
             </div>
 
-            <button class="btn-primary full-width" id="btnBuyWhatsapp">Pedir via WhatsApp</button>
+            <!-- Interactivity: Quantity Selector and Notes -->
+            <div class="product-order-options">
+              <div class="option-row">
+                <label class="option-label">Quantidade:</label>
+                <div class="quantity-selector">
+                  <button type="button" class="qty-btn" id="btnQtyMinus">—</button>
+                  <input type="number" id="inputProductQty" value="1" min="1" max="99" readonly>
+                  <button type="button" class="qty-btn" id="btnQtyPlus">+</button>
+                </div>
+              </div>
+              
+              <div class="option-row-full">
+                <label class="option-label" for="inputProductNotes">Observações do pedido:</label>
+                <input type="text" id="inputProductNotes" placeholder="Ex: Sem sal, castanhas inteiras, etc.">
+              </div>
+            </div>
+
+            <!-- CTA Order Button -->
+            <button class="btn-product-order-whatsapp" id="btnBuyWhatsapp">
+              <span class="btn-icon">💚</span> Pedir pelo WhatsApp
+            </button>
           </div>
         </div>
       </div>

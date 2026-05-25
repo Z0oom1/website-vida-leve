@@ -886,6 +886,28 @@ const detailProductDesc = document.getElementById('detailProductDesc');
 const detailProductPrice = document.getElementById('detailProductPrice');
 const btnBuyWhatsapp = document.getElementById('btnBuyWhatsapp');
 
+// Quantity selector modal interactivity
+const btnQtyMinus = document.getElementById('btnQtyMinus');
+const btnQtyPlus = document.getElementById('btnQtyPlus');
+const inputProductQty = document.getElementById('inputProductQty');
+const inputProductNotes = document.getElementById('inputProductNotes');
+
+if (btnQtyMinus && btnQtyPlus && inputProductQty) {
+  btnQtyMinus.addEventListener('click', () => {
+    let currentQty = parseInt(inputProductQty.value) || 1;
+    if (currentQty > 1) {
+      inputProductQty.value = currentQty - 1;
+    }
+  });
+
+  btnQtyPlus.addEventListener('click', () => {
+    let currentQty = parseInt(inputProductQty.value) || 1;
+    if (currentQty < 99) {
+      inputProductQty.value = currentQty + 1;
+    }
+  });
+}
+
 window.openProductDetailModal = function(productId) {
   const product = PRODUCTS_DATA.find(p => p.id === productId);
   if (!product) return;
@@ -895,12 +917,30 @@ window.openProductDetailModal = function(productId) {
   detailProductDesc.innerText = product.desc;
   detailProductPrice.innerText = product.price;
   
+  // Reseta escolhas interativas ao abrir o modal
+  if (inputProductQty) inputProductQty.value = 1;
+  if (inputProductNotes) inputProductNotes.value = '';
+  
   // Usa a própria imagem do produto (provisoria/provisoria2) definida no PRODUCTS_DATA
   detailProductImg.src = product.image || PROVISORIA_IMG;
 
   btnBuyWhatsapp.onclick = () => {
+    const qty = inputProductQty ? inputProductQty.value : 1;
+    const notes = inputProductNotes ? inputProductNotes.value.trim() : '';
+    
+    let msgText = `Olá! Gostaria de encomendar o produto "${product.name}" (${product.price}).\n\n*Quantidade:* ${qty}x\n`;
+    if (notes) {
+      msgText += `*Observações:* ${notes}\n`;
+    }
+    msgText += `\nVi este produto no catálogo digital da unidade de Regente Feijó.`;
+    
     productDetailModal.classList.remove('active');
-    openWhatsappStoreModalForProduct(product.name);
+    
+    // Configura e exibe o modal de confirmação do WhatsApp
+    activeWhatsappStore = { name: 'Vida Leve Regente Feijó', num: '5551987654321' };
+    whatsappModalStoreName.innerText = 'Vida Leve Regente Feijó';
+    whatsappMessageText.value = msgText;
+    whatsappModal.classList.add('active');
   };
   
   productDetailModal.classList.add('active');
