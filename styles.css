@@ -2128,9 +2128,7 @@ img {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(26, 41, 16, 0.6); /* Slightly darker green overlay for premium contrast */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(16, 26, 12, 0.85); /* Premium dark forest green backdrop overlay */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3330,9 +3328,7 @@ input:focus, textarea:focus, select:focus {
 
 /* Smooth modal transitions — Otimizado para performance instantânea */
 .modal-overlay {
-  /* Mantemos o blur estático para evitar lag de renderização na GPU no Safari/Chrome */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  /* Removido desfoque para compatibilidade universal instantânea e zero lag de renderização */
 }
 
 /* Enhanced card shadows on scroll */

@@ -950,6 +950,13 @@ btnProductDetailClose.addEventListener('click', () => {
   productDetailModal.classList.remove('active');
 });
 
+// Fecha o modal ao clicar na área escura externa (overlay)
+productDetailModal.addEventListener('click', (e) => {
+  if (e.target === productDetailModal) {
+    productDetailModal.classList.remove('active');
+  }
+});
+
 /* ==========================================================================
    CONTACT FORM LOGIC
    ========================================================================== */
