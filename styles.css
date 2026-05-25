@@ -2128,7 +2128,7 @@ img {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(35, 56, 22, 0.4);
+  background-color: rgba(26, 41, 16, 0.6); /* Slightly darker green overlay for premium contrast */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
@@ -2138,7 +2138,8 @@ img {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: all 0.3s ease;
+  transition: opacity 0.2s ease-out, visibility 0.2s ease-out; /* Super snappy instant transition */
+  will-change: opacity, visibility;
 }
 
 .modal-overlay.active {
@@ -2154,13 +2155,16 @@ img {
   max-width: 480px;
   width: 90%;
   position: relative;
-  box-shadow: var(--shadow-lg);
-  transform: scale(0.9);
-  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(24px) scale(0.97); /* Snappy elegant slide-up + scale spring entry */
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease-out;
+  will-change: transform, opacity;
 }
 
 .modal-overlay.active .modal-card {
-  transform: scale(1);
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .modal-close {
@@ -3324,14 +3328,11 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 0 0 3px rgba(86, 104, 29, 0.1);
 }
 
-/* Smooth modal transitions */
+/* Smooth modal transitions — Otimizado para performance instantânea */
 .modal-overlay {
-  backdrop-filter: blur(4px);
-  transition: all 0.3s ease;
-}
-
-.modal-overlay.active {
+  /* Mantemos o blur estático para evitar lag de renderização na GPU no Safari/Chrome */
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* Enhanced card shadows on scroll */
