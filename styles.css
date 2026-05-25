@@ -3272,30 +3272,124 @@ img {
 }
 
 @media (max-width: 768px) {
+  .modal-overlay {
+    align-items: flex-start;
+    padding: 30px 12px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .product-detail-card {
+    width: 100%;
+    max-width: 500px !important;
+    margin: 0 auto;
+    box-shadow: 0 15px 40px rgba(16, 26, 12, 0.25);
+  }
+
   .product-detail-content {
     grid-template-columns: 1fr;
+    min-height: auto;
   }
+
   .product-detail-img-container {
-    padding: 30px 20px;
+    padding: 32px 20px;
     border-right: none;
-    border-bottom: 1px solid rgba(35, 56, 22, 0.08);
+    border-bottom: 1px solid rgba(35, 56, 22, 0.06);
   }
+
   .product-detail-img-frame {
     padding: 16px;
-    max-width: 220px;
+    max-width: 180px;
+    box-shadow: 0 12px 30px rgba(35, 56, 22, 0.06);
   }
+
   .product-detail-img {
-    height: 160px;
+    height: 150px;
   }
+
+  .product-detail-badge {
+    top: 16px;
+    left: 16px;
+    padding: 5px 14px;
+    font-size: 9px;
+  }
+
   .product-detail-info {
-    padding: 30px 20px;
+    padding: 36px 20px;
   }
+
+  .product-detail-kicker {
+    font-size: 2.1rem;
+  }
+
   .product-detail-info h2 {
     font-size: 1.8rem;
+    margin-bottom: 8px;
   }
+
+  .product-price-large {
+    font-size: 1.8rem;
+  }
+
+  .product-detail-desc {
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
   .product-benefits-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
+    padding: 14px 0;
+    margin-bottom: 20px;
+  }
+
+  .benefit-tag {
+    padding: 6px 12px;
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .benefit-tag .benefit-icon {
+    font-size: 13px;
+  }
+
+  .product-order-options {
+    padding: 16px;
+    margin-bottom: 20px;
+    gap: 12px;
+  }
+
+  .option-label {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .quantity-selector {
+    padding: 2px;
+  }
+
+  .qty-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+
+  .quantity-selector input {
+    width: 32px;
+    font-size: 14px;
+  }
+
+  .product-order-options input[type="text"] {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .btn-product-order-whatsapp {
+    padding: 14px 28px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    width: 100%;
   }
 }
 
