@@ -172,27 +172,31 @@ window.addEventListener('scroll', () => {
    ========================================================================== */
 
 function openMenu() {
-  toggle.classList.add('vl-open');
-  overlay.classList.add('vl-show');
-  panel.classList.add('vl-show');
+  if (toggle) toggle.classList.add('vl-open');
+  if (overlay) overlay.classList.add('vl-show');
+  if (panel) panel.classList.add('vl-show');
   document.body.style.overflow = 'hidden';
 }
 
 function fecharMenu() {
-  toggle.classList.remove('vl-open');
-  overlay.classList.remove('vl-show');
-  panel.classList.remove('vl-show');
+  if (toggle) toggle.classList.remove('vl-open');
+  if (overlay) overlay.classList.remove('vl-show');
+  if (panel) panel.classList.remove('vl-show');
   document.body.style.overflow = '';
 }
 
-toggle.addEventListener('click', (e) => {
-  e.stopPropagation();
-  const aberto = panel.classList.contains('vl-show');
-  if (aberto) fecharMenu(); else openMenu();
-});
+if (toggle && panel) {
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const aberto = panel.classList.contains('vl-show');
+    if (aberto) fecharMenu(); else openMenu();
+  });
+}
 
-overlay.addEventListener('click', fecharMenu);
-mobileLinks.forEach(link => link.addEventListener('click', fecharMenu));
+if (overlay) overlay.addEventListener('click', fecharMenu);
+if (mobileLinks) {
+  mobileLinks.forEach(link => link.addEventListener('click', fecharMenu));
+}
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') fecharMenu();
@@ -241,10 +245,22 @@ function generateProductCards() {
         <p class="product-desc">${product.desc}</p>
         <div class="product-footer">
           <span class="product-price">${product.price}</span>
-          <button class="btn-sage-new" style="padding: 8px 18px; font-size: 0.85rem;" onclick="openProductDetailModal(${product.id})">Ver Detalhes</button>
+          <button class="btn-sage-new btn-details" style="padding: 8px 18px; font-size: 0.85rem;">Ver Detalhes</button>
         </div>
       </div>
     `;
+
+    const btnDetails = card.querySelector('.btn-details');
+    if (btnDetails) {
+      btnDetails.addEventListener('click', () => {
+        if (typeof openProductDetailModal === 'function') {
+          openProductDetailModal(product.id);
+        } else if (typeof window.openProductDetailModal === 'function') {
+          window.openProductDetailModal(product.id);
+        }
+      });
+    }
+
     productsGrid.appendChild(card);
   });
 }
@@ -475,30 +491,34 @@ if (sliderNext && sliderPrev && testimonialCards.length > 0) {
 
 window.openWhatsappStoreModal = function(storeName, whatsappNumber) {
   activeWhatsappStore = { name: storeName, num: whatsappNumber };
-  whatsappModalStoreName.innerText = storeName;
-  whatsappMessageText.value = `Olá! Gostaria de saber mais sobre a linha de produtos naturais da unidade de ${storeName} e se vocês realizam entregas na minha região.`;
-  whatsappModal.classList.add('active');
+  if (whatsappModalStoreName) whatsappModalStoreName.innerText = storeName;
+  if (whatsappMessageText) whatsappMessageText.value = `Olá! Gostaria de saber mais sobre a linha de produtos naturais da unidade de ${storeName} e se vocês realizam entregas na minha região.`;
+  if (whatsappModal) whatsappModal.classList.add('active');
 };
 
 window.openWhatsappStoreModalForProduct = function(productName) {
   // Preset to Guaiba as default, but custom message
   activeWhatsappStore = { name: 'Vida Leve Guaíba', num: '5551987654321' };
-  whatsappModalStoreName.innerText = 'Vida Leve Guaíba (Unidade Padrão)';
-  whatsappMessageText.value = `Olá! Gostaria de obter mais informações sobre o produto a granel/suplemento "${productName}" que vi no site Rede Vida Leve. Vocês possuem em estoque?`;
-  whatsappModal.classList.add('active');
+  if (whatsappModalStoreName) whatsappModalStoreName.innerText = 'Vida Leve Guaíba (Unidade Padrão)';
+  if (whatsappMessageText) whatsappMessageText.value = `Olá! Gostaria de obter mais informações sobre o produto a granel/suplemento "${productName}" que vi no site Rede Vida Leve. Vocês possuem em estoque?`;
+  if (whatsappModal) whatsappModal.classList.add('active');
 };
 
-btnWhatsappModalClose.addEventListener('click', () => {
-  whatsappModal.classList.remove('active');
-});
+if (btnWhatsappModalClose && whatsappModal) {
+  btnWhatsappModalClose.addEventListener('click', () => {
+    whatsappModal.classList.remove('active');
+  });
+}
 
-btnSendWhatsappRedirect.addEventListener('click', () => {
-  if (!activeWhatsappStore) return;
-  const msg = encodeURIComponent(whatsappMessageText.value);
-  const waUrl = `https://api.whatsapp.com/send?phone=${activeWhatsappStore.num}&text=${msg}`;
-  window.open(waUrl, '_blank');
-  whatsappModal.classList.remove('active');
-});
+if (btnSendWhatsappRedirect && whatsappModal) {
+  btnSendWhatsappRedirect.addEventListener('click', () => {
+    if (!activeWhatsappStore) return;
+    const msg = whatsappMessageText ? encodeURIComponent(whatsappMessageText.value) : '';
+    const waUrl = `https://api.whatsapp.com/send?phone=${activeWhatsappStore.num}&text=${msg}`;
+    window.open(waUrl, '_blank');
+    whatsappModal.classList.remove('active');
+  });
+}
 
 /* ==========================================================================
    NUTRITIONAL CONSULTING MOCK APPOINTMENT MODAL
@@ -676,42 +696,46 @@ window.deleteLead = function(index) {
   loadLeadsToAdmin();
 };
 
-btnClearLeads.addEventListener('click', () => {
-  if (!confirm('ATENÇÃO: Isso apagará permanentemente todos os leads cadastrados localmente! Continuar?')) return;
-  localStorage.removeItem('vida_leve_leads');
-  loadLeadsToAdmin();
-});
-
-btnExportCSV.addEventListener('click', () => {
-  const leads = JSON.parse(localStorage.getItem('vida_leve_leads') || '[]');
-  if (leads.length === 0) {
-    alert('Nenhum lead disponível para exportação.');
-    return;
-  }
-
-  let csvContent = 'data:text/csv;charset=utf-8,';
-  csvContent += 'Data,Nome,E-mail,WhatsApp,Capital,Cidade/UF\r\n';
-
-  leads.forEach(lead => {
-    const row = [
-      `"${lead.date}"`,
-      `"${lead.name}"`,
-      `"${lead.email}"`,
-      `"${lead.phone}"`,
-      `"${lead.capital}"`,
-      `"${lead.city}"`
-    ].join(',');
-    csvContent += row + '\r\n';
+if (btnClearLeads) {
+  btnClearLeads.addEventListener('click', () => {
+    if (!confirm('ATENÇÃO: Isso apagará permanentemente todos os leads cadastrados localmente! Continuar?')) return;
+    localStorage.removeItem('vida_leve_leads');
+    loadLeadsToAdmin();
   });
+}
 
-  const encodedUri = encodeURI(csvContent);
-  const link = document.createElement('a');
-  link.setAttribute('href', encodedUri);
-  link.setAttribute('download', 'leads_vida_leve.csv');
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-});
+if (btnExportCSV) {
+  btnExportCSV.addEventListener('click', () => {
+    const leads = JSON.parse(localStorage.getItem('vida_leve_leads') || '[]');
+    if (leads.length === 0) {
+      alert('Nenhum lead disponível para exportação.');
+      return;
+    }
+
+    let csvContent = 'data:text/csv;charset=utf-8,';
+    csvContent += 'Data,Nome,E-mail,WhatsApp,Capital,Cidade/UF\r\n';
+
+    leads.forEach(lead => {
+      const row = [
+        `"${lead.date}"`,
+        `"${lead.name}"`,
+        `"${lead.email}"`,
+        `"${lead.phone}"`,
+        `"${lead.capital}"`,
+        `"${lead.city}"`
+      ].join(',');
+      csvContent += row + '\r\n';
+    });
+
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', 'leads_vida_leve.csv');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+}
 
 /* ==========================================================================
    HERO CAROUSEL — FINAL CLEAN IMPLEMENTATION
@@ -908,54 +932,61 @@ if (btnQtyMinus && btnQtyPlus && inputProductQty) {
   });
 }
 
-window.openProductDetailModal = function(productId) {
+function openProductDetailModal(productId) {
   const product = PRODUCTS_DATA.find(p => p.id === productId);
   if (!product) return;
   
-  detailProductCategory.innerText = product.category;
-  detailProductName.innerText = product.name;
-  detailProductDesc.innerText = product.desc;
-  detailProductPrice.innerText = product.price;
+  if (detailProductCategory) detailProductCategory.innerText = product.category;
+  if (detailProductName) detailProductName.innerText = product.name;
+  if (detailProductDesc) detailProductDesc.innerText = product.desc;
+  if (detailProductPrice) detailProductPrice.innerText = product.price;
   
   // Reseta escolhas interativas ao abrir o modal
   if (inputProductQty) inputProductQty.value = 1;
   if (inputProductNotes) inputProductNotes.value = '';
   
   // Usa a própria imagem do produto (provisoria/provisoria2) definida no PRODUCTS_DATA
-  detailProductImg.src = product.image || PROVISORIA_IMG;
+  if (detailProductImg) detailProductImg.src = product.image || PROVISORIA_IMG;
 
-  btnBuyWhatsapp.onclick = () => {
-    const qty = inputProductQty ? inputProductQty.value : 1;
-    const notes = inputProductNotes ? inputProductNotes.value.trim() : '';
-    
-    let msgText = `Olá! Gostaria de encomendar o produto "${product.name}" (${product.price}).\n\n*Quantidade:* ${qty}x\n`;
-    if (notes) {
-      msgText += `*Observações:* ${notes}\n`;
-    }
-    msgText += `\nVi este produto no catálogo digital da unidade de Regente Feijó.`;
-    
-    productDetailModal.classList.remove('active');
-    
-    // Configura e exibe o modal de confirmação do WhatsApp
-    activeWhatsappStore = { name: 'Vida Leve Regente Feijó', num: '5551987654321' };
-    whatsappModalStoreName.innerText = 'Vida Leve Regente Feijó';
-    whatsappMessageText.value = msgText;
-    whatsappModal.classList.add('active');
-  };
-  
-  productDetailModal.classList.add('active');
-};
-
-btnProductDetailClose.addEventListener('click', () => {
-  productDetailModal.classList.remove('active');
-});
-
-// Fecha o modal ao clicar na área escura externa (overlay)
-productDetailModal.addEventListener('click', (e) => {
-  if (e.target === productDetailModal) {
-    productDetailModal.classList.remove('active');
+  if (btnBuyWhatsapp) {
+    btnBuyWhatsapp.onclick = () => {
+      const qty = inputProductQty ? inputProductQty.value : 1;
+      const notes = inputProductNotes ? inputProductNotes.value.trim() : '';
+      
+      let msgText = `Olá! Gostaria de encomendar o produto "${product.name}" (${product.price}).\n\n*Quantidade:* ${qty}x\n`;
+      if (notes) {
+        msgText += `*Observações:* ${notes}\n`;
+      }
+      msgText += `\nVi este produto no catálogo digital da unidade de Regente Feijó.`;
+      
+      if (productDetailModal) productDetailModal.classList.remove('active');
+      
+      // Configura e exibe o modal de confirmação do WhatsApp
+      activeWhatsappStore = { name: 'Vida Leve Regente Feijó', num: '5551987654321' };
+      if (whatsappModalStoreName) whatsappModalStoreName.innerText = 'Vida Leve Regente Feijó';
+      if (whatsappMessageText) whatsappMessageText.value = msgText;
+      if (whatsappModal) whatsappModal.classList.add('active');
+    };
   }
-});
+  
+  if (productDetailModal) productDetailModal.classList.add('active');
+}
+window.openProductDetailModal = openProductDetailModal;
+
+if (btnProductDetailClose && productDetailModal) {
+  btnProductDetailClose.addEventListener('click', () => {
+    productDetailModal.classList.remove('active');
+  });
+}
+
+if (productDetailModal) {
+  // Fecha o modal ao clicar na área escura externa (overlay)
+  productDetailModal.addEventListener('click', (e) => {
+    if (e.target === productDetailModal) {
+      productDetailModal.classList.remove('active');
+    }
+  });
+}
 
 /* ==========================================================================
    CONTACT FORM LOGIC

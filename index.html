@@ -651,139 +651,6 @@
 
     </main>
 
-    <!-- MODAL: PRODUCT DETAIL (REDESIGNED & PREMIUM) -->
-    <div class="modal-overlay" id="productDetailModal">
-      <div class="modal-card product-detail-card">
-        <button class="modal-close" id="btnProductDetailClose" aria-label="Fechar">&times;</button>
-        <div class="product-detail-content">
-          <!-- Left side: Immersive Product Image Frame -->
-          <div class="product-detail-img-container">
-            <div class="product-detail-img-frame">
-              <img src="assets/provisoria.png" alt="Produto" id="detailProductImg" class="product-detail-img">
-            </div>
-            <span class="product-detail-badge" id="detailProductCategory">Categoria</span>
-          </div>
-          
-          <!-- Right side: Rich Product Info & Custom Order Features -->
-          <div class="product-detail-info">
-            <span class="product-detail-kicker">Catálogo Oficial</span>
-            <h2 id="detailProductName">Nome do Produto</h2>
-            <div class="product-detail-price-row">
-              <span class="price-label">Preço sugerido:</span>
-              <h3 id="detailProductPrice" class="product-price-large">R$ 0,00</h3>
-            </div>
-            <p id="detailProductDesc" class="product-detail-desc">Descrição detalhada do produto.</p>
-
-            <!-- Premium Product Features/Benefits -->
-            <div class="product-benefits-grid">
-              <div class="benefit-tag">
-                <span class="benefit-icon">🌿</span>
-                <span class="benefit-text">100% Natural</span>
-              </div>
-              <div class="benefit-tag">
-                <span class="benefit-icon">🛡️</span>
-                <span class="benefit-text">Sem Conservantes</span>
-              </div>
-              <div class="benefit-tag">
-                <span class="benefit-icon">💎</span>
-                <span class="benefit-text">Padrão Ouro</span>
-              </div>
-              <div class="benefit-tag">
-                <span class="benefit-icon">🩺</span>
-                <span class="benefit-text">Foco Saúde</span>
-              </div>
-            </div>
-
-            <!-- Interactivity: Quantity Selector and Notes -->
-            <div class="product-order-options">
-              <div class="option-row">
-                <label class="option-label">Quantidade:</label>
-                <div class="quantity-selector">
-                  <button type="button" class="qty-btn" id="btnQtyMinus">—</button>
-                  <input type="number" id="inputProductQty" value="1" min="1" max="99" readonly>
-                  <button type="button" class="qty-btn" id="btnQtyPlus">+</button>
-                </div>
-              </div>
-              
-              <div class="option-row-full">
-                <label class="option-label" for="inputProductNotes">Observações do pedido:</label>
-                <input type="text" id="inputProductNotes" placeholder="Ex: Sem sal, castanhas inteiras, etc.">
-              </div>
-            </div>
-
-            <!-- CTA Order Button -->
-            <button class="btn-product-order-whatsapp" id="btnBuyWhatsapp">
-              <span class="btn-icon">💚</span> Pedir pelo WhatsApp
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MODAL: NUTRITIONAL CONSULTING MOCK APPOINTMENT -->
-    <div class="modal-overlay" id="consultingModal">
-      <div class="modal-card">
-        <button class="modal-close" id="btnModalClose">&times;</button>
-        <div class="modal-header">
-          <span class="modal-icon">🩺</span>
-          <h3>Agendar Consultoria Nutricional</h3>
-          <p>Preencha os dados e escolha um horário para a sua consultoria personalizada.</p>
-        </div>
-        <form id="consultingForm" class="modal-form">
-          <div class="form-group">
-            <label for="consultName">Seu Nome *</label>
-            <input type="text" id="consultName" required placeholder="Digite seu nome">
-          </div>
-          <div class="form-group">
-            <label for="consultPhone">Seu WhatsApp *</label>
-            <input type="tel" id="consultPhone" required placeholder="(00) 00000-0000">
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="consultDate">Data Desejada *</label>
-              <input type="date" id="consultDate" required>
-            </div>
-            <div class="form-group">
-              <label for="consultTime">Horário *</label>
-              <select id="consultTime" required>
-                <option value="" disabled selected>Selecione</option>
-                <option value="09:00">09:00</option>
-                <option value="11:00">11:00</option>
-                <option value="14:00">14:00</option>
-                <option value="16:00">16:00</option>
-              </select>
-            </div>
-          </div>
-          <button type="submit" class="btn-primary full-width">Confirmar Pré-Agendamento</button>
-        </form>
-        <div class="modal-success" id="consultingSuccess">
-          <div class="success-icon">💚</div>
-          <h4>Pré-Agendamento Realizado!</h4>
-          <p>A equipe de nutrição da Vida Leve entrará em contato em instantes no seu WhatsApp para confirmar a sua
-            consulta!</p>
-          <button class="btn-primary full-width" id="btnResetConsultModal">Fechar</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- WHATSAPP MESSAGE BUILDER MODAL -->
-    <div class="modal-overlay" id="whatsappModal">
-      <div class="modal-card">
-        <button class="modal-close" id="btnWhatsappModalClose">&times;</button>
-        <div class="modal-header">
-          <span class="modal-icon">💬</span>
-          <h3>Falar com a Loja</h3>
-          <p id="whatsappModalStoreName">Vida Leve Regente Feijó</p>
-        </div>
-        <div class="form-group">
-          <label for="whatsappMessageText">Mensagem padrão</label>
-          <textarea id="whatsappMessageText"
-            rows="3">Olá! Gostaria de saber mais sobre a linha de produtos naturais e se vocês realizam entregas na minha região.</textarea>
-        </div>
-        <button class="btn-primary full-width" id="btnSendWhatsappRedirect">Iniciar conversa no WhatsApp</button>
-      </div>
-    </div>
-
     <!-- FOOTER -->
     <footer class="main-footer">
       <div class="container footer-grid">
@@ -839,6 +706,141 @@
   <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
     ↑
   </button>
+
+  <!-- MODALS OUTSIDE OF APP-CONTAINER (TO PRESERVE FIXED POSITIONING STACKING CONTEXT UNDER ANIMATIONS) -->
+
+  <!-- MODAL: PRODUCT DETAIL (REDESIGNED & PREMIUM) -->
+  <div class="modal-overlay" id="productDetailModal">
+    <div class="modal-card product-detail-card">
+      <button class="modal-close" id="btnProductDetailClose" aria-label="Fechar">&times;</button>
+      <div class="product-detail-content">
+        <!-- Left side: Immersive Product Image Frame -->
+        <div class="product-detail-img-container">
+          <div class="product-detail-img-frame">
+            <img src="assets/provisoria.png" alt="Produto" id="detailProductImg" class="product-detail-img">
+          </div>
+          <span class="product-detail-badge" id="detailProductCategory">Categoria</span>
+        </div>
+        
+        <!-- Right side: Rich Product Info & Custom Order Features -->
+        <div class="product-detail-info">
+          <span class="product-detail-kicker">Catálogo Oficial</span>
+          <h2 id="detailProductName">Nome do Produto</h2>
+          <div class="product-detail-price-row">
+            <span class="price-label">Preço sugerido:</span>
+            <h3 id="detailProductPrice" class="product-price-large">R$ 0,00</h3>
+          </div>
+          <p id="detailProductDesc" class="product-detail-desc">Descrição detalhada do produto.</p>
+
+          <!-- Premium Product Features/Benefits -->
+          <div class="product-benefits-grid">
+            <div class="benefit-tag">
+              <span class="benefit-icon">🌿</span>
+              <span class="benefit-text">100% Natural</span>
+            </div>
+            <div class="benefit-tag">
+              <span class="benefit-icon">🛡️</span>
+              <span class="benefit-text">Sem Conservantes</span>
+            </div>
+            <div class="benefit-tag">
+              <span class="benefit-icon">💎</span>
+              <span class="benefit-text">Padrão Ouro</span>
+            </div>
+            <div class="benefit-tag">
+              <span class="benefit-icon">🩺</span>
+              <span class="benefit-text">Foco Saúde</span>
+            </div>
+          </div>
+
+          <!-- Interactivity: Quantity Selector and Notes -->
+          <div class="product-order-options">
+            <div class="option-row">
+              <label class="option-label">Quantidade:</label>
+              <div class="quantity-selector">
+                <button type="button" class="qty-btn" id="btnQtyMinus">—</button>
+                <input type="number" id="inputProductQty" value="1" min="1" max="99" readonly>
+                <button type="button" class="qty-btn" id="btnQtyPlus">+</button>
+              </div>
+            </div>
+            
+            <div class="option-row-full">
+              <label class="option-label" for="inputProductNotes">Observações do pedido:</label>
+              <input type="text" id="inputProductNotes" placeholder="Ex: Sem sal, castanhas inteiras, etc.">
+            </div>
+          </div>
+
+          <!-- CTA Order Button -->
+          <button class="btn-product-order-whatsapp" id="btnBuyWhatsapp">
+            <span class="btn-icon">💚</span> Pedir pelo WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: NUTRITIONAL CONSULTING MOCK APPOINTMENT -->
+  <div class="modal-overlay" id="consultingModal">
+    <div class="modal-card">
+      <button class="modal-close" id="btnModalClose">&times;</button>
+      <div class="modal-header">
+        <span class="modal-icon">🩺</span>
+        <h3>Agendar Consultoria Nutricional</h3>
+        <p>Preencha os dados e escolha um horário para a sua consultoria personalizada.</p>
+      </div>
+      <form id="consultingForm" class="modal-form">
+        <div class="form-group">
+          <label for="consultName">Seu Nome *</label>
+          <input type="text" id="consultName" required placeholder="Digite seu nome">
+        </div>
+        <div class="form-group">
+          <label for="consultPhone">Seu WhatsApp *</label>
+          <input type="tel" id="consultPhone" required placeholder="(00) 00000-0000">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="consultDate">Data Desejada *</label>
+            <input type="date" id="consultDate" required>
+          </div>
+          <div class="form-group">
+            <label for="consultTime">Horário *</label>
+            <select id="consultTime" required>
+              <option value="" disabled selected>Selecione</option>
+              <option value="09:00">09:00</option>
+              <option value="11:00">11:00</option>
+              <option value="14:00">14:00</option>
+              <option value="16:00">16:00</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary full-width">Confirmar Pré-Agendamento</button>
+      </form>
+      <div class="modal-success" id="consultingSuccess">
+        <div class="success-icon">💚</div>
+        <h4>Pré-Agendamento Realizado!</h4>
+        <p>A equipe de nutrição da Vida Leve entrará em contato em instantes no seu WhatsApp para confirmar a sua
+          consulta!</p>
+        <button class="btn-primary full-width" id="btnResetConsultModal">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHATSAPP MESSAGE BUILDER MODAL -->
+  <div class="modal-overlay" id="whatsappModal">
+    <div class="modal-card">
+      <button class="modal-close" id="btnWhatsappModalClose">&times;</button>
+      <div class="modal-header">
+        <span class="modal-icon">💬</span>
+        <h3>Falar com a Loja</h3>
+        <p id="whatsappModalStoreName">Vida Leve Regente Feijó</p>
+      </div>
+      <div class="form-group">
+        <label for="whatsappMessageText">Mensagem padrão</label>
+        <textarea id="whatsappMessageText"
+          rows="3">Olá! Gostaria de saber mais sobre a linha de produtos naturais e se vocês realizam entregas na minha região.</textarea>
+      </div>
+      <button class="btn-primary full-width" id="btnSendWhatsappRedirect">Iniciar conversa no WhatsApp</button>
+    </div>
+  </div>
 
   <script type="module" src="app.js"></script>
 </body>
